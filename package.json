@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/varunbhati904/AssignmentSoftware#readme",
   "dependencies": {
+    "ejs": "^3.0.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "express-sessions": "^1.0.6",
