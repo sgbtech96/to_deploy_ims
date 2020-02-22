@@ -48,11 +48,11 @@ app.get('/register',function(req,res){
 
 
 app.post('/register',function(req,res){
-	User.register(new User({'name':req.body.name,'username':req.body.username,'role':req.body.role}),req.body.password,function(err){
+	User.register(new User({'name':req.body.name,'username':req.body.username,'role':req.body.role}),req.body.password,function(err,user){
 		if(err)
 			console.log(err);
 		else{
-			passport.authenticate("local")(req,res,function(err,user)
+			passport.authenticate("local")(req,res,function()
 			{
 					res.send(err,user);
 			});
@@ -63,9 +63,9 @@ app.post('/register',function(req,res){
 
 app.post('/login',passport.authenticate("local",{failureRedirect:'/login'}),function(req,res)	{
 	
-			passport.authenticate("local")(req,res,function(err,user)
+			passport.authenticate("local")(req,res,function()
 			{
-				res.send(user);
+				res.send(req.user);
 					
 			});
 		
