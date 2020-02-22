@@ -54,7 +54,7 @@ app.post('/register',function(req,res){
 		else{
 			passport.authenticate("local")(req,res,function()
 			{
-					res.send(err,user);
+					res.status(200).send(user);
 			});
 	}}
 	);
@@ -63,11 +63,10 @@ app.post('/register',function(req,res){
 
 app.post('/login',passport.authenticate("local",{failureRedirect:'/login'}),function(req,res)	{
 	
-			passport.authenticate("local")(req,res,function()
-			{
-				res.send(req.user);
+		
+				res.status(200).send(req.user);
 					
-			});
+	
 		
 });
 
