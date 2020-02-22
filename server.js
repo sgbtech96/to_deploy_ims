@@ -52,12 +52,9 @@ app.post('/register',function(req,res){
 		if(err)
 			console.log(err);
 		else{
-			passport.authenticate("local")(req,res,function()
+			passport.authenticate("local")(req,res,function(err,user)
 			{
-				if(req.user.role=='student')
-				res.render('questions');
-				else
-					res.render('add');
+					res.send(err,user);
 			});
 	}}
 	);
@@ -66,12 +63,10 @@ app.post('/register',function(req,res){
 
 app.post('/login',passport.authenticate("local",{failureRedirect:'/login'}),function(req,res)	{
 	
-			passport.authenticate("local")(req,res,function()
+			passport.authenticate("local")(req,res,function(err,user)
 			{
-				if(req.user.role=='student')
-				res.render('questions');
-				else
-					res.render('add');
+				res.send(user);
+					
 			});
 		
 });
