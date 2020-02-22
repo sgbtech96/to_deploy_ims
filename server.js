@@ -8,7 +8,7 @@ passport = require('passport'),
 expressSessions = require('express-sessions');
 const port = process.env.PORT || 3000;
 
-mongoose.connect("mongodb://127.0.0.1:27017/assignment");
+mongoose.connect("mongodb+srv://imshp:imshp@ims-hp-d5aao.mongodb.net/test?retryWrites=true&w=majority");
 
 
 var db=mongoose.connection;
