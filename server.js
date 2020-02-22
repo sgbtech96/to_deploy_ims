@@ -75,10 +75,6 @@ app.post('/login',passport.authenticate("local",{failureRedirect:'/login'}),func
 
 
 
-app.listen(port,function(err)
-{
-	console.log("listening on 3000");
-});
 
 
 
