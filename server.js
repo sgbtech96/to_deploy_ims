@@ -459,7 +459,7 @@ app.get('/logout', function (req, res) {
 
 //**************  Login End  ###************
 
-const port =process.env.PORT || 3000
+
 
 app.listen(port,function(){
   console.log("Started on PORT 3000");
