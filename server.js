@@ -81,17 +81,7 @@ app.post('/login',passport.authenticate("local",{failureRedirect:'/login'}),func
 
 // Backend Dhruv 22 feb2020
 
-var express        =         require("express");
-var bodyParser     =         require("body-parser");
-var app            =         express();
 
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/mydb";
-var bodyParser = require("body-parser");
-
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 var path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -108,11 +98,6 @@ function checkAuth(req, res, next) {
 }
 
 
-
-app.get('/',function(req,res){
-  res.sendfile("index.html");
-  // res.query
-});
 
 app.get('/home/', checkAuth, function (req, res) {
   res.sendfile('./home.html');
